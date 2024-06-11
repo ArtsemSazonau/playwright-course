@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { ProductsPage } from "../page_objects/ProductsPage";
 
-test.only("New user end-to-end journey", async ( {page} ) => {
+test("New user end-to-end journey", async ( {page} ) => {
 
     const productsPage = new ProductsPage(page);
     await productsPage.visit();
