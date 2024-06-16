@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { ProductsPage } from "../page_objects/ProductsPage";
+import { Navigation } from "../page_objects/Navigation";
 
 test("New user end-to-end journey", async ( {page} ) => {
 
@@ -12,5 +13,5 @@ test("New user end-to-end journey", async ( {page} ) => {
     await productsPage.addProductToBasket(1);
     await productsPage.addProductToBasket(2);
 
-    //await page.pause();
+    await page.pause();
 });
