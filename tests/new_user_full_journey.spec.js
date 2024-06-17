@@ -13,5 +13,9 @@ test("New user end-to-end journey", async ( {page} ) => {
     await productsPage.addProductToBasket(1);
     await productsPage.addProductToBasket(2);
 
+    const navigation = new Navigation(page);
+
+    await navigation.goToCheckout();
+
     await page.pause();
 });
