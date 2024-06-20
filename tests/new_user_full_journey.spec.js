@@ -9,7 +9,8 @@ test("New user end-to-end journey", async ( {page} ) => {
     await productsPage.visit();
     //await page.pause();
 
-   
+    await productsPage.sortByCheapest();
+
     await productsPage.addProductToBasket(0);
     await productsPage.addProductToBasket(1);
     await productsPage.addProductToBasket(2);
