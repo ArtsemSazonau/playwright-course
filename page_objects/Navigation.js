@@ -21,7 +21,7 @@ export class Navigation {
     goToCheckout = async () => {
 
         await this.checkoutLink.waitFor();
-        console.log(await this.checkoutLink.getAttribute('href'));
+        //console.log(await this.checkoutLink.getAttribute('href'));
         await this.checkoutLink.click();
         await this.page.waitForURL("/basket");
 

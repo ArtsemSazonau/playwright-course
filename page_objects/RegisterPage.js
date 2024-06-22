@@ -5,7 +5,7 @@ export class RegisterPage {
         this.emailInput = page.getByPlaceholder('e-mail')
         this.passwordInput = page.getByPlaceholder('password')
         this.signUpButton = page.getByRole('button', { name: 'register'})
-    }
+    };
 
     signUpAsNewUser = async ()=> {
 
@@ -18,5 +18,5 @@ export class RegisterPage {
         await this.signUpButton.waitFor()
         await this.signUpButton.click()
 
-    }
+    };
 }
