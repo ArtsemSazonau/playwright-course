@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { ProductsPage } from "../page_objects/ProductsPage";
 import { Navigation } from "../page_objects/Navigation";
-import { Checkout } from "./../page_objects/Checkout"
+import { Checkout } from "./../page_objects/Checkout";
+import { LoginPage } from "../page_objects/LoginPage";
 
 test("New user end-to-end journey", async ( {page} ) => {
 
@@ -20,6 +21,10 @@ test("New user end-to-end journey", async ( {page} ) => {
 
     const checkout = new Checkout(page);
     await checkout.removeCheapestProduct();
+    await checkout.continueToCheckout();
+
+    const login = new LoginPage(page);
+    await login.moveToSignup();
 
     //await page.pause();
 });
