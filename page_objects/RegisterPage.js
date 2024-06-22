@@ -7,16 +7,16 @@ export class RegisterPage {
         this.signUpButton = page.getByRole('button', { name: 'register'})
     };
 
-    signUpAsNewUser = async ()=> {
+    signUpAsNewUser = async () => {
 
-        await this.emailInput.waitFor()
-        await this.emailInput.fill("sometestingemail@testing.com")
+        await this.emailInput.waitFor();
+        await this.emailInput.fill("sometestingemail@testing.com");
         
-        await this.passwordInput.waitFor()
-        await this.passwordInput.fill("P@ssw0rd")
+        await this.passwordInput.waitFor();
+        await this.passwordInput.fill("P@ssw0rd");
 
-        await this.signUpButton.waitFor()
-        await this.signUpButton.click()
+        await this.signUpButton.waitFor();
+        await this.signUpButton.click();
 
     };
 }
