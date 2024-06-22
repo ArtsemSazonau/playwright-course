@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { v4 as uuidv4 } from "uuid";
 import { ProductsPage } from "../page_objects/ProductsPage";
 import { Navigation } from "../page_objects/Navigation";
 import { Checkout } from "./../page_objects/Checkout";
@@ -28,7 +29,9 @@ test("New user end-to-end journey", async ( {page} ) => {
     await login.moveToSignup();
 
     const registerPage = new RegisterPage(page)
-    await registerPage.signUpAsNewUser();
+    const email = uuidv4() + "@gmail.com";
+    const password = uuidv4();
+    await registerPage.signUpAsNewUser(email, password);
 
     //await page.pause();
 });
