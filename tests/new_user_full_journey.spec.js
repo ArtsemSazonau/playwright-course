@@ -5,6 +5,8 @@ import { Navigation } from "../page_objects/Navigation";
 import { Checkout } from "./../page_objects/Checkout";
 import { LoginPage } from "../page_objects/LoginPage";
 import { RegisterPage } from "../page_objects/RegisterPage";
+import { DeliveryDetails } from "../page_objects/DeliveryDetails";
+import { deliveryDetails as userAddress } from "../data/deliveryDetails";
 
 test("New user end-to-end journey", async ( {page} ) => {
 
@@ -32,6 +34,9 @@ test("New user end-to-end journey", async ( {page} ) => {
     const email = uuidv4() + "@gmail.com";
     const password = uuidv4();
     await registerPage.signUpAsNewUser(email, password);
+
+    const deliveryDetails = new DeliveryDetails(page);
+    await deliveryDetails.fillDetails(userAddress);
 
     //await page.pause();
 });
