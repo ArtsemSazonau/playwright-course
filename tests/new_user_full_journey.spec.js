@@ -37,6 +37,7 @@ test("New user end-to-end journey", async ( {page} ) => {
 
     const deliveryDetails = new DeliveryDetails(page);
     await deliveryDetails.fillDetails(userAddress);
+    await deliveryDetails.saveDetails();
 
     //await page.pause();
 });
