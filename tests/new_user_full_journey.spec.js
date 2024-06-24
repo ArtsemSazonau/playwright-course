@@ -7,8 +7,11 @@ import { LoginPage } from "../page_objects/LoginPage";
 import { RegisterPage } from "../page_objects/RegisterPage";
 import { DeliveryDetails } from "../page_objects/DeliveryDetails";
 import { deliveryDetails as userAddress } from "../data/deliveryDetails";
+import { PaymentPage } from "../page_objects/PaymentPage";
 
 test("New user end-to-end journey", async ( {page} ) => {
+
+    test.setTimeout(25000);
 
     const productsPage = new ProductsPage(page);
     await productsPage.visit();
@@ -38,6 +41,12 @@ test("New user end-to-end journey", async ( {page} ) => {
     const deliveryDetails = new DeliveryDetails(page);
     await deliveryDetails.fillDetails(userAddress);
     await deliveryDetails.saveDetails();
+    await deliveryDetails.continueToPayment();
+
+    const paymentPage = new PaymentPage(page);
+    await paymentPage.activateDiscount();
+
+
 
     //await page.pause();
 });

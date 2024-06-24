@@ -74,4 +74,10 @@ export class DeliveryDetails {
         //await this.savedAdressFirstName.first().waitFor()
         expect(await this.savedAddressCountry.first().innerText()).toBe(await this.deliveryCountryDropdown.inputValue())
     }
+
+    continueToPayment = async () => {
+        await this.pageContinueButon.waitFor()
+        await this.pageContinueButon.click()
+        await this.page.waitForURL(/\/payment/, { timeout: 3000 })
+    }
 }
