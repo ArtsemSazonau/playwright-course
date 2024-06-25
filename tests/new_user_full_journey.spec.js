@@ -8,14 +8,19 @@ import { RegisterPage } from "../page_objects/RegisterPage";
 import { DeliveryDetails } from "../page_objects/DeliveryDetails";
 import { deliveryDetails as userAddress } from "../data/deliveryDetails";
 import { PaymentPage } from "../page_objects/PaymentPage";
+import { paymentDetails } from "../data/paymentDetails";
 
 test("New user end-to-end journey", async ( {page} ) => {
 
-    test.setTimeout(25000);
+    test.setTimeout(35000);
+
+
 
     const productsPage = new ProductsPage(page);
     await productsPage.visit();
     //await page.pause();
+
+
 
     await productsPage.sortByCheapest();
 
@@ -43,8 +48,12 @@ test("New user end-to-end journey", async ( {page} ) => {
     await deliveryDetails.saveDetails();
     await deliveryDetails.continueToPayment();
 
+    
     const paymentPage = new PaymentPage(page);
+    await paymentPage.fillPaymentDetails(paymentDetails);
     await paymentPage.activateDiscount();
+    await paymentPage.completePayment();
+    
 
 
 
