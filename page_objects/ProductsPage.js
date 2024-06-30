@@ -1,6 +1,12 @@
 import { expect } from "@playwright/test";
 import { Navigation } from "./Navigation";
 
+const isDesktopViewport = (page) => {
+    //true or false
+    const size = page.viewportSize();
+    return size.width >= 600;
+}
+
 
 export class ProductsPage {
 
@@ -24,15 +30,18 @@ export class ProductsPage {
         await expect(specificAddButon).toHaveText("Add to Basket");
         
         const navigation = new Navigation(this.page);
-
-        const basketCountBeforeAdding = await navigation.getBasketCount();
+        // only desktop
+        if (isDesktopViewport(this.page)) {
+            const basketCountBeforeAdding = await navigation.getBasketCount();
+        }
         await specificAddButon.click();
         
         await expect(specificAddButon).toHaveText("Remove from Basket");
-        
-        const basketCountAfterAdding = await navigation.getBasketCount();
-        
-        expect(basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding);
+        // only desktop
+        if (isDesktopViewport(this.page)) {
+            const basketCountAfterAdding = await navigation.getBasketCount();
+            expect(basketCountAfterAdding).toBeGreaterThan(basketCountBeforeAdding);
+        }
 
     };
 
