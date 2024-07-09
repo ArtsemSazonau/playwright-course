@@ -28,31 +28,31 @@ test("New user end-to-end journey", async ( {page} ) => {
     await productsPage.addProductToBasket(1);
     await productsPage.addProductToBasket(2);
 
-    // const navigation = new Navigation(page);
-    // await navigation.goToCheckout();
+    const navigation = new Navigation(page);
+    await navigation.goToCheckout();
 
-    // const checkout = new Checkout(page);
-    // await checkout.removeCheapestProduct();
-    // await checkout.continueToCheckout();
+    const checkout = new Checkout(page);
+    await checkout.removeCheapestProduct();
+    await checkout.continueToCheckout();
 
-    // const login = new LoginPage(page);
-    // await login.moveToSignup();
+    const login = new LoginPage(page);
+    await login.moveToSignup();
 
-    // const registerPage = new RegisterPage(page)
-    // const email = uuidv4() + "@gmail.com";
-    // const password = uuidv4();
-    // await registerPage.signUpAsNewUser(email, password);
+    const registerPage = new RegisterPage(page)
+    const email = uuidv4() + "@gmail.com";
+    const password = uuidv4();
+    await registerPage.signUpAsNewUser(email, password);
 
-    // const deliveryDetails = new DeliveryDetails(page);
-    // await deliveryDetails.fillDetails(userAddress);
-    // await deliveryDetails.saveDetails();
-    // await deliveryDetails.continueToPayment();
+    const deliveryDetails = new DeliveryDetails(page);
+    await deliveryDetails.fillDetails(userAddress);
+    await deliveryDetails.saveDetails();
+    await deliveryDetails.continueToPayment();
 
     
-    // const paymentPage = new PaymentPage(page);
-    // await paymentPage.fillPaymentDetails(paymentDetails);
-    // await paymentPage.activateDiscount();
-    // await paymentPage.completePayment();
+    const paymentPage = new PaymentPage(page);
+    await paymentPage.fillPaymentDetails(paymentDetails);
+    await paymentPage.activateDiscount();
+    await paymentPage.completePayment();
     
 
 
