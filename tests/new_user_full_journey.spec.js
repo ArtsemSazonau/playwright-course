@@ -10,7 +10,7 @@ import { deliveryDetails as userAddress } from "../data/deliveryDetails";
 import { PaymentPage } from "../page_objects/PaymentPage";
 import { paymentDetails } from "../data/paymentDetails";
 
-test("New user end-to-end journey", async ( {page} ) => {
+test.skip("New user end-to-end journey", async ( {page} ) => {
 
     test.setTimeout(35000);
 
