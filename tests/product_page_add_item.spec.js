@@ -23,7 +23,7 @@ test.skip("Product page add to Basket", async ({page}) => {
     await checkoutLink.click();
     await page.waitForURL("/basket");
 
-    await page.pause();
+    //await page.pause();
 
 });
 
