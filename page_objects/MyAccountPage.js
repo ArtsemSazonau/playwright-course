@@ -1,7 +1,8 @@
 export class MyAccountPage {
     constructor(page) {
         this.page = page;
-        this.accountId = page.getByText('User ID: 4e4bbbae-1ddc-420d-94c9-abe24d0c9504');
+        this.accountId = page.getByText('User ID');
+        this.errorMessage = page.locator('[data-qa="error-message"]');
     }
 
     visit = async () => {
@@ -11,5 +12,9 @@ export class MyAccountPage {
 
     waitForAccountId = async () => {
         await this.accountId.waitFor();
+    }
+
+    waitForErrorMessage = async () => {
+        await this.errorMessage.waitFor();
     }
 }
