@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test --headed",
-    "test:ci": "playwright test"
+    "test:ci": "playwright test",
+    "ui": "playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.44.1",
+    "@playwright/test": "^1.45.1",
     "@types/node": "^20.12.7"
   },
   "dependencies": {
