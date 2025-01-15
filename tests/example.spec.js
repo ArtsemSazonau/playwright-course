@@ -1,5 +1,5 @@
 // @ts-check
-// just one update n3150 up-up
+// 1st branch
 const { test, expect } = require('@playwright/test');
 
 test.skip('1 homepage has title and links to intro page', async ({ page }) => {
